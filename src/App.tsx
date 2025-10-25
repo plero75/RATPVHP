@@ -8,6 +8,7 @@ import { NewsCard } from '../components/NewsCard';
 import { CoursesSection } from '../components/CoursesSection';
 import { Footer } from '../components/Footer';
 import { ErrorBoundary } from '../components/ErrorBoundary';
+import { PerformanceDashboard } from './lib/ux-components';
 
 const App: React.FC = () => {
   // États de statut pour chaque module
@@ -82,6 +83,9 @@ const App: React.FC = () => {
         
         <Footer />
       </div>
+      
+      {/* Dashboard de performance VHP3 */}
+      <PerformanceDashboard />
     </div>
   );
 };
