@@ -1,22 +1,16 @@
-RATPVHP – Version HTML/JS statique
+Dashboard IDFM – Fullscreen (DEBUG)
+==================================
 
 Déploiement
 -----------
-1) Dépose ce dossier à la racine du dépôt GitHub `plero75/RATPVHP`.
-2) Dans GitHub → Settings → Pages → Source : choisis `main` et `(root)`.
-3) L’URL sera : https://plero75.github.io/RATPVHP/
+1) Déposez ce dossier à la racine du dépôt `plero75/RATPVHP`.
+2) GitHub → Settings → Pages → Source : `main` / `(root)`.
+3) Ouvrez https://plero75.github.io/RATPVHP/
 
-Configuration
--------------
-- Les appels PRIM passent par un proxy Cloudflare et injectent l’en-tête `apikey` :
-  PROXY = https://ratp-proxy.hippodrome-proxy42.workers.dev/?url=
-  PRIM_API_KEY = (déjà rempli)
-
-Modules
--------
-- RER A Joinville-le-Pont : temps réel + fallback GTFS (Navitia via PRIM)
-- Tous les bus à Joinville (découverte lignes, affichage permanent, fallback)
-- Météo : Open-Meteo (48.835, 2.45)
-- Vélib’ : 12163 (Vincennes), 12128 (École du Breuil)
-- France Info : bandeau RSS
-- Alertes trafic : bannière (RER A, 77, 201, N33)
+Notes
+-----
+- Toutes les requêtes PRIM passent par votre proxy Cloudflare (header `apikey` côté worker).
+- Le Worker doit autoriser `Access-Control-Allow-Headers: apikey` (préflight CORS).
+- Le script tente d'abord via le proxy, puis bascule en fallback direct (utile en test).
+- Les logs sont regroupés et colorés dans la console (F12).
+- La pastille en bas à droite indique l'état du proxy : 🟢 OK / 🔴 Erreur.
